@@ -139,11 +139,19 @@ In this written guide, I documeneted my hands-on experience while creating an NF
 
 ## Create a NFS Persistent Volume (PV) and a Persistent Volume Claim (PVC)
 
-1. First, we still need to create the directory that we need to use as a volume and set the correct permissions on it; to match the UID of the user running in the container.
+1. First, we need to create the directory that we need to use as a volume and set the correct permissions on it; to match the UID of the user running in the container. Remember, we need to create it inside the NFS directory that we created earlier.
 
 <img src="readme_files/11.jpg">
 
-2. Create a PV definition file with the path we've just created it.
+2. Install `nfs-common` package on the worker nodes; to be able to mount the NFS volume.
+
+```
+sudo apt install nfs-common
+```
+
+<img src="readme_files/15.jpg">
+
+3. Create a PV definition file with the path we've just created it.
 
     ```
     apiVersion: v1
@@ -162,7 +170,7 @@ In this written guide, I documeneted my hands-on experience while creating an NF
         server: 157.230.12.200
     ```
 
-3. Create a PVC definition file with the same spec requirements in the PV.
+4. Create a PVC definition file with the same spec requirements in the PV.
 
     ```
     apiVersion: v1
@@ -178,11 +186,11 @@ In this written guide, I documeneted my hands-on experience while creating an NF
       storageClassName: nfs
     ```
 
-4. Create the previous resources in the cluster. The status of the PV and PVC should be `Bound`.
+5. Create the previous resources in the cluster. The status of the PV and PVC should be `Bound`.
 
 <img src="readme_files/12.jpg">
 
-5. We should be able to use the created PVC in any pod definition now:
+6. We should be able to use the created PVC in any pod definition now:
 
 <img src="readme_files/13.jpg">
 
