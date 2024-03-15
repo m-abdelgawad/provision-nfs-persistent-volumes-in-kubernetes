@@ -66,9 +66,8 @@ In this written guide, I documeneted my hands-on experience while creating an NF
 <img src="readme_files/2.jpg">
 
 3. Export the directory and allow the worker servers to access it.
-
     ```
-    vim /etc/exports
+    echo '/mnt/nfs/ 137.184.216.27(rw,sync,no_subtree_check) 137.184.194.104(rw,sync,no_subtree_check)' >> /etc/exports
     exportfs -a
     systemctl restart nfs-kernel-server
     systemctl status nfs-kernel-server
