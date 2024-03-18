@@ -62,6 +62,8 @@ In this written guide, I documeneted my hands-on experience while creating an NF
     
     ```
     mkdir -p /mnt/nfs
+    chown -R nobody:nogroup /mnt/nfs
+    chmod -R 777 /mnt/nfs/
     ```
 <img src="readme_files/2.jpg">
 
