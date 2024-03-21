@@ -100,7 +100,7 @@ ufw allow from WOKER_IP to any port nfs
 
     ```
     mkdir test_mount
-    mount 157.230.12.200:/mnt/nfs/ ./test_mount/
+    mount MASTER_IP:/mnt/nfs/ ./test_mount/
     ```
 <img src="readme_files/7.jpg">
 
