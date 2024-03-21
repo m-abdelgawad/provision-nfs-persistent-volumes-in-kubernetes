@@ -78,7 +78,9 @@ In this written guide, I documeneted my hands-on experience while creating an NF
 <img src="readme_files/4.jpg">
 
 4. Allow NFS port in the UFW firewall.
-
+```
+ufw allow from WOKER_IP to any port nfs
+```
 <img src="readme_files/5.jpg">
 
 
